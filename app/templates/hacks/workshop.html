@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-{%for data1 in data['results']%}
-{% if data1['venue']%}
-{{data1['venue']['lon']}}
-{{data1['venue']['lat']}}
-{%endif%}
+{%for data1 in data%}
+<p> address1 = </br>{{data1}} </p>
 {%endfor%}
+
 {% endblock %}

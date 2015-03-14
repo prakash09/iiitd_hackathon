@@ -1,4 +1,5 @@
 from flask import render_template
+import googlemaps
 from . import hacks
 import urllib2
 #import yaml
@@ -12,7 +13,17 @@ def workshop():
 	final_url=('https://api.meetup.com/2/open_events?key=3947c3e2d3e196a1d4292396f334f&and_text=False&offset=0&format=json&limited_events=False&photo-host=public&page=20&radius=25.0&category=18%2C2%2C6%2C34&desc=False&status=upcoming&sig_id=161835092&sig=e5b75df3659d864d9ddbd92a5711545ff0f1ccdc')
 	json_obj=urllib2.urlopen(final_url)
 	data=json.load(json_obj)
-	return render_template('hacks/workshop.html',data=data)
+        gmaps = googlemaps.Client(key='AIzaSyB3wNLhjT9wEyeFvSN1yjp3iEdTFp76pt8')
+        import pdb; pdb.set_trace()
+        new_list=[]
+	for data1 in data['results']:
+            if 'venue' in data1.keys():
+                matrix=gmaps.distance_matrix("%s, %s " %(str(data1['venue']['lon']),str(data1['venue']['lat'])),"okhla,delhi")
+                new_list.append(matrix)
+            else:
+                continue
+        #return matrix
+	return render_template('hacks/workshop.html',data=new_list)
 	#for data1 in data['results']:
 	#	return data1
 
