@@ -28,8 +28,8 @@ def entertainment():
 	final_url=('https://api.meetup.com/2/open_events?and_text=False&offset=0&format=json&limited_events=False&photo-host=public&page=20&radius=25.0&category=10%2C11%2C29%2C3%2C23%2C20%2C27%2C9%2C32%2C1&desc=False&status=upcoming&sig_id=161835092&sig=e5b75df3659d864d9ddbd92a5711545ff0f1ccdc')
 	json_obj=urllib2.urlopen(final_url)
 	data=json.load(json_obj)
-	for data1 in data['results']:
-		if data1['venue']:
+	for data1 in data['results']
+		if data1['venue']
 			data1['venue']['lon']
 			data1['venue']['lat']
 
