@@ -18,7 +18,7 @@ def workshop():
         new_list=[]
 	for data1 in data['results']:
             if 'venue' in data1.keys():
-                matrix=gmaps.distance_matrix("%s, %s " %(str(data1['venue']['lon']),str(data1['venue']['lat'])),"okhla,delhi")
+                matrix=gmaps.distance_matrix("%s, %s " %(str(data1['venue']['lat']),str(data1['venue']['lon'])),"okhla,delhi")
                 new_list.append(matrix)
             else:
                 continue
