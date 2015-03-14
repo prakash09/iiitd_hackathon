@@ -14,7 +14,7 @@ def workshop():
 	json_obj=urllib2.urlopen(final_url)
 	data=json.load(json_obj)
         gmaps = googlemaps.Client(key='AIzaSyB3wNLhjT9wEyeFvSN1yjp3iEdTFp76pt8')
-        import pdb; pdb.set_trace()
+#        import pdb; pdb.set_trace()
         new_list=[]
 	for data1 in data['results']:
             if 'venue' in data1.keys():
